@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [Header("Final Puzzle (Puzzle E) root object, enabled once count hits 1")]
     [SerializeField] private GameObject finalPuzzleRoot;
 
+    [Header("Optional: room-view <-> close-up focus transitions")]
+    [SerializeField] private PuzzleFocusController focusController;
+
     private int remainingCount;
 
     private void Awake()
@@ -55,6 +58,19 @@ public class GameManager : MonoBehaviour
         {
             finalPuzzleRoot.SetActive(false);
         }
+
+        // NOTE: we deliberately do NOT auto-focus Puzzle A here. The room view
+        // should be what's visible after the title fades out. TitleScreenController
+        // calls BeginPuzzleAFocus() below once its fade sequence finishes.
+    }
+
+    /// <summary>Call this from TitleScreenController once the title fade sequence completes.</summary>
+    public void BeginPuzzleAFocus()
+    {
+        if (focusController != null)
+        {
+            focusController.FocusOnPuzzle(0);
+        }
     }
 
     private void HandlePuzzleSolved(PuzzleBase solved)
@@ -68,11 +84,22 @@ public class GameManager : MonoBehaviour
         if (nextIndex < puzzlesInOrder.Length)
         {
             puzzlesInOrder[nextIndex].Activate();
+
+            // Fade out solved puzzle's close-up, briefly show room, fade into next puzzle's close-up.
+            if (focusController != null)
+            {
+                focusController.TransitionToNextPuzzle(nextIndex);
+            }
         }
         else if (remainingCount <= 1 && finalPuzzleRoot != null)
         {
             // All four wall puzzles solved, center shows 1 -> reveal final puzzle
             finalPuzzleRoot.SetActive(true);
+
+            if (focusController != null)
+            {
+                focusController.ReturnToRoomView();
+            }
         }
     }
 
