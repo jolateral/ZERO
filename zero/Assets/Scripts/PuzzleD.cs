@@ -40,9 +40,10 @@ public class PuzzleD : PuzzleBase
     private void Subtract(int amount)
     {
         if (IsSolved) return;
-        // Clamp so it never goes negative/wraps oddly before hitting exactly 0.
-        int result = Mathf.Max(0, display.GetValue() - amount);
-        display.SetValue(result);
+        // Wraps around: e.g. 0003 - 5 = 9998, not clamped to 0. This stops players
+        // from just spamming every button repeatedly to "safely" bottom out at zero.
+        int wrapped = ((display.GetValue() - amount) % 10000 + 10000) % 10000;
+        display.SetValue(wrapped);
     }
 
     private void HandleReachedZero()

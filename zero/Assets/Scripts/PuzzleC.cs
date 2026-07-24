@@ -10,7 +10,7 @@ public class PuzzleC : PuzzleBase
 {
     [SerializeField] private SevenSegmentDisplay display;
     [SerializeField] private int startingValue = 32; // matches design doc art (0032)
-    [SerializeField] private float tickInterval = 1f; // seconds per auto-decrement
+    [SerializeField] private float tickInterval = 0.7f; // seconds per auto-decrement
 
     private Coroutine countdownRoutine;
     private bool running = false;

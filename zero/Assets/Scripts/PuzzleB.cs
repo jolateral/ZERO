@@ -3,22 +3,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Puzzle B: four digits auto-count down independently at different speeds
-/// (leftmost slowest, rightmost fastest), wrapping 9 after hitting 0.
-/// Player must press the buttons LEFT TO RIGHT, each press only "catching"
-/// its digit if that digit currently reads 0. On a correct catch, that digit
-/// freezes at 0 and the next button becomes the active one.
+/// Puzzle B: only the CURRENTLY ACTIVE digit auto-counts down (leftmost first),
+/// wrapping 9 after hitting 0, so the UI isn't cluttered with all four digits
+/// moving at once. Player presses the active button to "catch" it at 0 —
+/// on a correct catch, that digit freezes and the next digit starts ticking.
 /// On an incorrect press (wrong button, or right button but digit isn't 0),
-/// everything resets: all digits resume auto-counting and the active index
-/// resets to 0 (first button).
+/// everything resets: the active index goes back to 0 and only the first
+/// digit resumes ticking.
 /// Solved when all four digits are frozen at 0 (display reads 0000).
 /// </summary>
 public class PuzzleB : PuzzleBase
 {
     [SerializeField] private SevenSegmentDisplay display;
 
-    [Header("Countdown speeds per digit (seconds per tick), index 0 = leftmost/slowest")]
-    [SerializeField] private float[] tickIntervals = { 1.2f, 0.9f, 0.6f, 0.4f };
+    [Header("Countdown speed per digit (seconds per tick), index 0 = leftmost")]
+    [SerializeField] private float[] tickIntervals = { 0.9f, 0.7f, 0.45f, 0.3f };
 
     [Header("Starting values (matches design doc: 2 8 5 3)")]
     [SerializeField] private int[] startingDigits = { 2, 8, 5, 3 };
@@ -30,7 +29,7 @@ public class PuzzleB : PuzzleBase
 
     private bool[] digitFrozen = new bool[4];
     private int activeIndex = 0;
-    private Coroutine[] tickRoutines = new Coroutine[4];
+    private Coroutine activeTickRoutine;
     private bool running = false;
 
     protected override void Awake()
@@ -48,31 +47,26 @@ public class PuzzleB : PuzzleBase
         if (!running && !IsSolved)
         {
             running = true;
-            StartAllTicking();
+            StartTickingActiveDigit();
             RefreshButtonVisuals();
         }
     }
 
-    private void StartAllTicking()
+    private void StartTickingActiveDigit()
     {
-        for (int i = 0; i < 4; i++)
+        StopTicking();
+        if (activeIndex < 4 && !digitFrozen[activeIndex])
         {
-            if (!digitFrozen[i])
-            {
-                tickRoutines[i] = StartCoroutine(TickDigit(i));
-            }
+            activeTickRoutine = StartCoroutine(TickDigit(activeIndex));
         }
     }
 
-    private void StopAllTicking()
+    private void StopTicking()
     {
-        for (int i = 0; i < 4; i++)
+        if (activeTickRoutine != null)
         {
-            if (tickRoutines[i] != null)
-            {
-                StopCoroutine(tickRoutines[i]);
-                tickRoutines[i] = null;
-            }
+            StopCoroutine(activeTickRoutine);
+            activeTickRoutine = null;
         }
     }
 
@@ -98,13 +92,17 @@ public class PuzzleB : PuzzleBase
         {
             FreezeDigit(index);
             activeIndex++;
-            RefreshButtonVisuals();
 
             if (activeIndex >= 4)
             {
-                StopAllTicking();
+                StopTicking();
                 MarkSolved();
             }
+            else
+            {
+                StartTickingActiveDigit();
+            }
+            RefreshButtonVisuals();
         }
         else
         {
@@ -115,11 +113,7 @@ public class PuzzleB : PuzzleBase
     private void FreezeDigit(int index)
     {
         digitFrozen[index] = true;
-        if (tickRoutines[index] != null)
-        {
-            StopCoroutine(tickRoutines[index]);
-            tickRoutines[index] = null;
-        }
+        StopTicking();
     }
 
     private void ResetProgress()
@@ -129,8 +123,7 @@ public class PuzzleB : PuzzleBase
         {
             digitFrozen[i] = false;
         }
-        StopAllTicking();
-        StartAllTicking();
+        StartTickingActiveDigit();
         RefreshButtonVisuals();
         // TODO: trigger a "flash" animation/SFX here per design doc feedback
     }
