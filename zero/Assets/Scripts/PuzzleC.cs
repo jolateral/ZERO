@@ -3,14 +3,14 @@ using UnityEngine;
 
 /// <summary>
 /// Puzzle C: display auto-counts down by 1 every tick. There is a single
-/// unlabeled button that ADDS 11 to the display (a trap — the solution is
+/// unlabeled button that ADDS 11 to the display (a trap -- the solution is
 /// to simply wait and not touch it). Solved when the display reaches 0000.
 /// </summary>
 public class PuzzleC : PuzzleBase
 {
     [SerializeField] private SevenSegmentDisplay display;
-    [SerializeField] private int startingValue = 32; // matches design doc art (0032)
-    [SerializeField] private float tickInterval = 0.7f; // seconds per auto-decrement
+    [SerializeField] private int startingValue = 23; // shortened wait time per feedback
+    [SerializeField] private float tickInterval = 1f; // seconds per auto-decrement
 
     private Coroutine countdownRoutine;
     private bool running = false;
@@ -56,5 +56,23 @@ public class PuzzleC : PuzzleBase
             StopCoroutine(countdownRoutine);
         }
         MarkSolved();
+    }
+
+    /// <summary>Called by GameManager when the player backs out without solving this puzzle.</summary>
+    public override void ResetPuzzle()
+    {
+        if (IsSolved) return;
+        if (countdownRoutine != null)
+        {
+            StopCoroutine(countdownRoutine);
+            countdownRoutine = null;
+        }
+        running = false;
+        display.SetValue(startingValue);
+        // If the puzzle is currently reachable (light isn't Off), resume counting immediately.
+        if (CurrentLightState != LightState.Off)
+        {
+            Activate();
+        }
     }
 }

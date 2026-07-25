@@ -9,6 +9,11 @@ using UnityEngine;
 /// Sequence: fade out title overlay -> fade to black -> hide title overlay ->
 /// fade black back out, revealing the puzzle room underneath (which should
 /// already exist in the scene, just visually covered by the title until now).
+///
+/// Note: this no longer calls into GameManager at the end. PuzzleFocusController
+/// already defaults to showing the hallway view on Awake(), and GameManager.Start()
+/// already activates Puzzle A -- so once the black overlay clears, the player just
+/// sees the hallway with Puzzle A's thumbnail unlocked and ready to click.
 /// </summary>
 public class TitleScreenController : MonoBehaviour
 {
@@ -67,17 +72,11 @@ public class TitleScreenController : MonoBehaviour
 
         yield return new WaitForSeconds(holdOnBlack);
 
-        // 4. Fade black back out, revealing the puzzle room
+        // 4. Fade black back out, revealing the puzzle room (hallway view underneath)
         yield return Fade(blackFadeOverlay, 1f, 0f, blackFadeOutDuration);
         blackFadeOverlay.blocksRaycasts = false;
 
         transitioning = false;
-
-        // Now that the room is visible, kick off the room -> Puzzle A focus fade.
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.BeginPuzzleAFocus();
-        }
     }
 
     private IEnumerator Fade(CanvasGroup group, float from, float to, float duration)

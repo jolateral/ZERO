@@ -3,33 +3,34 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Puzzle B: only the CURRENTLY ACTIVE digit auto-counts down (leftmost first),
-/// wrapping 9 after hitting 0, so the UI isn't cluttered with all four digits
-/// moving at once. Player presses the active button to "catch" it at 0 —
-/// on a correct catch, that digit freezes and the next digit starts ticking.
-/// On an incorrect press (wrong button, or right button but digit isn't 0),
-/// everything resets: the active index goes back to 0 and only the first
-/// digit resumes ticking.
+/// Puzzle B: four digits auto-count down independently and SIMULTANEOUSLY
+/// (leftmost slowest, rightmost fastest), wrapping 9 after hitting 0.
+/// The player can press the four buttons in ANY order, "catching" a digit
+/// only if that digit currently reads 0. On a correct catch, that digit
+/// freezes at 0 permanently. On an incorrect press (any digit that isn't
+/// currently 0), every un-frozen digit's ticking flashes/resets and the
+/// player has to start catching over -- but there is no fixed left-to-right
+/// order requirement anymore.
 /// Solved when all four digits are frozen at 0 (display reads 0000).
 /// </summary>
 public class PuzzleB : PuzzleBase
 {
     [SerializeField] private SevenSegmentDisplay display;
 
-    [Header("Countdown speed per digit (seconds per tick), index 0 = leftmost")]
-    [SerializeField] private float[] tickIntervals = { 0.9f, 0.7f, 0.45f, 0.3f };
+    [Header("Countdown speeds per digit (seconds per tick), index 0 = leftmost/slowest")]
+    [Tooltip("Doubled speed from the original pass (intervals halved).")]
+    [SerializeField] private float[] tickIntervals = { 0.6f, 0.45f, 0.3f, 0.2f };
 
-    [Header("Starting values (matches design doc: 2 8 5 3)")]
-    [SerializeField] private int[] startingDigits = { 2, 8, 5, 3 };
+    [Header("Starting values (updated: 3 2 7 9)")]
+    [SerializeField] private int[] startingDigits = { 3, 2, 7, 9 };
 
-    [Header("Buttons (visual only placeholders — swap sprites for red/gray states)")]
+    [Header("Buttons (visual only placeholders -- swap sprites for red/green states)")]
     [SerializeField] private Image[] buttonImages = new Image[4];
-    [SerializeField] private Color activeButtonColor = Color.red;
-    [SerializeField] private Color inactiveButtonColor = Color.gray;
+    [SerializeField] private Color runningColor = Color.red;
+    [SerializeField] private Color frozenColor = Color.green;
 
     private bool[] digitFrozen = new bool[4];
-    private int activeIndex = 0;
-    private Coroutine activeTickRoutine;
+    private Coroutine[] tickRoutines = new Coroutine[4];
     private bool running = false;
 
     protected override void Awake()
@@ -47,26 +48,31 @@ public class PuzzleB : PuzzleBase
         if (!running && !IsSolved)
         {
             running = true;
-            StartTickingActiveDigit();
+            StartAllTicking();
             RefreshButtonVisuals();
         }
     }
 
-    private void StartTickingActiveDigit()
+    private void StartAllTicking()
     {
-        StopTicking();
-        if (activeIndex < 4 && !digitFrozen[activeIndex])
+        for (int i = 0; i < 4; i++)
         {
-            activeTickRoutine = StartCoroutine(TickDigit(activeIndex));
+            if (!digitFrozen[i] && tickRoutines[i] == null)
+            {
+                tickRoutines[i] = StartCoroutine(TickDigit(i));
+            }
         }
     }
 
-    private void StopTicking()
+    private void StopAllTicking()
     {
-        if (activeTickRoutine != null)
+        for (int i = 0; i < 4; i++)
         {
-            StopCoroutine(activeTickRoutine);
-            activeTickRoutine = null;
+            if (tickRoutines[i] != null)
+            {
+                StopCoroutine(tickRoutines[i]);
+                tickRoutines[i] = null;
+            }
         }
     }
 
@@ -76,33 +82,29 @@ public class PuzzleB : PuzzleBase
         {
             yield return new WaitForSeconds(tickIntervals[index]);
             if (digitFrozen[index]) yield break;
-            display.DecrementDigit(index, wrapAtZero: true); // wraps 0 -> 9 per design doc
+            display.DecrementDigit(index, wrapAtZero: true); // wraps 0 -> 9
         }
     }
 
-    // Hook these to your four UI Buttons' OnClick events (index 0..3, left to right).
+    // Hook all four UI Buttons' OnClick events to this, each passing its own index (0..3).
+    // Order doesn't matter anymore -- any button can be pressed at any time.
     public void PressButton(int index)
     {
         if (IsSolved) return;
+        if (digitFrozen[index]) return; // already caught, ignore further presses on it
 
-        bool correctButton = (index == activeIndex);
         bool digitIsZero = (display.GetDigit(index) == 0);
 
-        if (correctButton && digitIsZero)
+        if (digitIsZero)
         {
             FreezeDigit(index);
-            activeIndex++;
+            RefreshButtonVisuals();
 
-            if (activeIndex >= 4)
+            if (AllFrozen())
             {
-                StopTicking();
+                StopAllTicking();
                 MarkSolved();
             }
-            else
-            {
-                StartTickingActiveDigit();
-            }
-            RefreshButtonVisuals();
         }
         else
         {
@@ -110,20 +112,36 @@ public class PuzzleB : PuzzleBase
         }
     }
 
+    private bool AllFrozen()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (!digitFrozen[i]) return false;
+        }
+        return true;
+    }
+
     private void FreezeDigit(int index)
     {
         digitFrozen[index] = true;
-        StopTicking();
+        if (tickRoutines[index] != null)
+        {
+            StopCoroutine(tickRoutines[index]);
+            tickRoutines[index] = null;
+        }
     }
 
     private void ResetProgress()
     {
-        activeIndex = 0;
+        // Un-freeze everything and resume ticking from wherever each digit
+        // currently sits (matches the "everything starts running again" feedback --
+        // it's the caught-progress that resets, not the raw digit values).
         for (int i = 0; i < 4; i++)
         {
             digitFrozen[i] = false;
         }
-        StartTickingActiveDigit();
+        StopAllTicking();
+        StartAllTicking();
         RefreshButtonVisuals();
         // TODO: trigger a "flash" animation/SFX here per design doc feedback
     }
@@ -133,7 +151,26 @@ public class PuzzleB : PuzzleBase
         for (int i = 0; i < buttonImages.Length; i++)
         {
             if (buttonImages[i] == null) continue;
-            buttonImages[i].color = (i == activeIndex) ? activeButtonColor : inactiveButtonColor;
+            buttonImages[i].color = digitFrozen[i] ? frozenColor : runningColor;
+        }
+    }
+
+    /// <summary>Called by GameManager when the player backs out without solving this puzzle.</summary>
+    public override void ResetPuzzle()
+    {
+        if (IsSolved) return;
+        StopAllTicking();
+        running = false;
+        for (int i = 0; i < 4; i++)
+        {
+            digitFrozen[i] = false;
+            display.SetDigit(i, startingDigits[i]);
+        }
+        RefreshButtonVisuals();
+        // If the puzzle is currently reachable (light isn't Off), resume ticking immediately.
+        if (CurrentLightState != LightState.Off)
+        {
+            Activate();
         }
     }
 }
