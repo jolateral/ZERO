@@ -5,6 +5,13 @@ using TMPro;
 /// Owns the center-floor countdown number (starts at 5) and the unlock chain
 /// A -> B -> C -> D -> (E, final puzzle). Wire each PuzzleX component in the
 /// Inspector in solve order.
+///
+/// Point-and-click adventure flow: the game now starts on a "hallway" view
+/// showing all four puzzles as thumbnails. Locked puzzles (previous puzzle
+/// not yet solved) aren't clickable. Clicking an unlocked thumbnail zooms
+/// into that puzzle's full focus view. Each puzzle's "back" button returns
+/// to the hallway and, if that puzzle wasn't solved, resets it to its
+/// default starting state.
 /// </summary>
 public class GameManager : MonoBehaviour
 {
@@ -16,10 +23,13 @@ public class GameManager : MonoBehaviour
     [Header("Puzzles, in solve order: A, B, C, D")]
     [SerializeField] private PuzzleBase[] puzzlesInOrder;
 
+    [Header("Hallway thumbnails, SAME ORDER as Puzzles In Order")]
+    [SerializeField] private PuzzleHallwayIcon[] hallwayIcons;
+
     [Header("Final Puzzle (Puzzle E) root object, enabled once count hits 1")]
     [SerializeField] private GameObject finalPuzzleRoot;
 
-    [Header("Optional: room-view <-> close-up focus transitions")]
+    [Header("Room-view <-> close-up focus transitions")]
     [SerializeField] private PuzzleFocusController focusController;
 
     private int remainingCount;
@@ -39,11 +49,17 @@ public class GameManager : MonoBehaviour
         remainingCount = puzzlesInOrder.Length + 1; // 4 wall puzzles + final = 5, matches design doc
         UpdateCenterDisplay();
 
-        // Only the first puzzle starts active; the rest start Off until unlocked.
+        // Only the first puzzle starts active (ticking/reachable); the rest start Off until unlocked.
+        // All four are always VISIBLE in the hallway, but only unlocked ones are clickable.
         for (int i = 0; i < puzzlesInOrder.Length; i++)
         {
-            int index = i; // capture
             puzzlesInOrder[i].OnSolved += HandlePuzzleSolved;
+
+            if (hallwayIcons != null && i < hallwayIcons.Length)
+            {
+                hallwayIcons[i].SetUnlocked(i == 0);
+            }
+
             if (i == 0)
             {
                 puzzlesInOrder[i].Activate();
@@ -59,18 +75,40 @@ public class GameManager : MonoBehaviour
             finalPuzzleRoot.SetActive(false);
         }
 
-        // NOTE: we deliberately do NOT auto-focus Puzzle A here. The room view
-        // should be what's visible after the title fades out. TitleScreenController
-        // calls BeginPuzzleAFocus() below once its fade sequence finishes.
+        // Game starts on the hallway view (all four thumbnails visible, only A clickable).
+        // PuzzleFocusController.Awake() already defaults to showing the hallway/room view.
     }
 
-    /// <summary>Call this from TitleScreenController once the title fade sequence completes.</summary>
-    public void BeginPuzzleAFocus()
+    /// <summary>Called by a PuzzleHallwayIcon when the player clicks an unlocked puzzle thumbnail.</summary>
+    public void SelectPuzzle(int index)
     {
+        if (index < 0 || index >= puzzlesInOrder.Length) return;
+        if (!IsPuzzleUnlocked(index)) return;
+
         if (focusController != null)
         {
-            focusController.FocusOnPuzzle(0);
+            focusController.FocusOnPuzzle(index);
         }
+    }
+
+    /// <summary>Called by a puzzle's "back" button. Resets that puzzle if unsolved, then returns to the hallway.</summary>
+    public void BackToHallwayFromPuzzle(int index)
+    {
+        if (index >= 0 && index < puzzlesInOrder.Length)
+        {
+            puzzlesInOrder[index].ResetPuzzle();
+        }
+
+        if (focusController != null)
+        {
+            focusController.ReturnToHallway();
+        }
+    }
+
+    private bool IsPuzzleUnlocked(int index)
+    {
+        if (index == 0) return true;
+        return puzzlesInOrder[index - 1].IsSolved;
     }
 
     private void HandlePuzzleSolved(PuzzleBase solved)
@@ -85,21 +123,22 @@ public class GameManager : MonoBehaviour
         {
             puzzlesInOrder[nextIndex].Activate();
 
-            // Fade out solved puzzle's close-up, briefly show room, fade into next puzzle's close-up.
-            if (focusController != null)
+            if (hallwayIcons != null && nextIndex < hallwayIcons.Length)
             {
-                focusController.TransitionToNextPuzzle(nextIndex);
+                hallwayIcons[nextIndex].SetUnlocked(true);
             }
         }
         else if (remainingCount <= 1 && finalPuzzleRoot != null)
         {
             // All four wall puzzles solved, center shows 1 -> reveal final puzzle
             finalPuzzleRoot.SetActive(true);
+        }
 
-            if (focusController != null)
-            {
-                focusController.ReturnToRoomView();
-            }
+        // Point-and-click flow: always drop back to the hallway after a solve so the
+        // player chooses when to walk into the next puzzle, rather than auto-zooming in.
+        if (focusController != null)
+        {
+            focusController.ReturnToHallway();
         }
     }
 

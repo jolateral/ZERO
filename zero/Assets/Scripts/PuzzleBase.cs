@@ -60,5 +60,16 @@ public abstract class PuzzleBase : MonoBehaviour
         OnSolved?.Invoke(this);
     }
 
+    /// <summary>
+    /// Restore this puzzle to its default, un-attempted starting state.
+    /// Called by GameManager when the player backs out of an unsolved puzzle
+    /// via the hallway's back button. No-op if already solved -- solved
+    /// puzzles stay solved. Each puzzle overrides this with its own reset logic.
+    /// </summary>
+    public virtual void ResetPuzzle()
+    {
+        // no-op by default
+    }
+
     public string PuzzleId => puzzleId;
 }
