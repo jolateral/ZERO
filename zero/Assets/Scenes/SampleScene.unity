@@ -7207,7 +7207,7 @@ MonoBehaviour:
   - 0.9
   - 0.6
   - 0.4
-  startingDigits: 02000000080000000500000003000000
+  startingDigits: 03000000020000000700000009000000
   buttonImages:
   - {fileID: 565150690}
   - {fileID: 646028284}
@@ -7736,8 +7736,8 @@ MonoBehaviour:
   redColor: {r: 1, g: 0, b: 0, a: 1}
   greenColor: {r: 0, g: 1, b: 0, a: 1}
   display: {fileID: 536446711}
-  startingValue: 32
-  tickInterval: 1
+  startingValue: 23
+  tickInterval: 0.5
 --- !u!1 &1664889245
 GameObject:
   m_ObjectHideFlags: 0
