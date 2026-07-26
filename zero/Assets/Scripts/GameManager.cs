@@ -1,18 +1,6 @@
 using UnityEngine;
 using TMPro;
 
-/// <summary>
-/// Owns the center-floor countdown number (starts at 5) and the unlock chain
-/// A -> B -> C -> D -> (E, final puzzle). Wire each PuzzleX component in the
-/// Inspector in solve order.
-///
-/// Point-and-click adventure flow: the game now starts on a "hallway" view
-/// showing all four puzzles as thumbnails. Locked puzzles (previous puzzle
-/// not yet solved) aren't clickable. Clicking an unlocked thumbnail zooms
-/// into that puzzle's full focus view. Each puzzle's "back" button returns
-/// to the hallway and, if that puzzle wasn't solved, resets it to its
-/// default starting state.
-/// </summary>
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -28,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Final Puzzle (Puzzle E) root object, enabled once count hits 1")]
     [SerializeField] private GameObject finalPuzzleRoot;
+    [SerializeField] private PuzzleE finalPuzzle; // the PuzzleE component living under finalPuzzleRoot
 
     [Header("Room-view <-> close-up focus transitions")]
     [SerializeField] private PuzzleFocusController focusController;
@@ -132,6 +121,10 @@ public class GameManager : MonoBehaviour
         {
             // All four wall puzzles solved, center shows 1 -> reveal final puzzle
             finalPuzzleRoot.SetActive(true);
+            if (finalPuzzle != null)
+            {
+                finalPuzzle.Activate(); // flips the 3 target decorations to "1" and starts the glow
+            }
         }
 
         // Point-and-click flow: always drop back to the hallway after a solve so the
@@ -150,11 +143,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /// <summary>Call this from your Puzzle E script when the final puzzle is solved.</summary>
+    /// <summary>Called by PuzzleE once all 3 target decorations are fixed back to zero.</summary>
     public void CompleteFinalPuzzle()
     {
         remainingCount = 0;
-        UpdateCenterDisplay();
+        UpdateCenterDisplay(); // the giant center number flips from "1" to "0"
         Debug.Log("Game complete! Hook your win screen / scene transition here.");
     }
 }
