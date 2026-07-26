@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.audiokinetic.wwise.addressables": "file:../Packages/WwiseUnityAddressables-25.1.4",
     "com.unity.2d.animation": "14.0.3",
     "com.unity.2d.aseprite": "4.0.1",
     "com.unity.2d.psdimporter": "13.0.2",

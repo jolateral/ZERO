@@ -20,8 +20,8 @@
   <AutoSyncWaapi>true</AutoSyncWaapi>
   <WaapiChangePending>false</WaapiChangePending>
   <InstallationWasRequested>false</InstallationWasRequested>
-  <UseGitRepository>true</UseGitRepository>
-  <PackageSource />
+  <UseGitRepository>false</UseGitRepository>
+  <PackageSource>/Applications/Wwise Launcher.app</PackageSource>
   <AddressableBankFolder>WwiseData/Bank</AddressableBankFolder>
   <UseCustomBuildScript>false</UseCustomBuildScript>
   <AddressableAssetBuilderPath>Assets/AddressableAssetsData/DataBuilders/BuildScriptWwisePacked.asset</AddressableAssetBuilderPath>
