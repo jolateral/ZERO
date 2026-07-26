@@ -48,8 +48,11 @@ public class PuzzleE : PuzzleBase
         if (IsSolved) return;
 
         fixedCount++;
+        Debug.Log($"[PuzzleE] Decoration fixed. fixedCount={fixedCount}/{targetDecorations.Length}");
+
         if (fixedCount >= targetDecorations.Length)
         {
+            Debug.Log("[PuzzleE] All decorations fixed -- calling MarkSolved()");
             MarkSolved();
 
             if (wallOpenAnimationRoot != null)
@@ -59,7 +62,12 @@ public class PuzzleE : PuzzleBase
 
             if (GameManager.Instance != null)
             {
+                Debug.Log("[PuzzleE] Calling GameManager.CompleteFinalPuzzle()");
                 GameManager.Instance.CompleteFinalPuzzle();
+            }
+            else
+            {
+                Debug.LogWarning("[PuzzleE] GameManager.Instance was NULL -- CompleteFinalPuzzle() never called!");
             }
         }
     }
