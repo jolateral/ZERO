@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     [Header("Room-view <-> close-up focus transitions")]
     [SerializeField] private PuzzleFocusController focusController;
 
+    [Header("Audio")]
+    [SerializeField] private AudioManager audioManager;
     private int remainingCount;
 
     private void Awake()
@@ -103,6 +105,7 @@ public class GameManager : MonoBehaviour
     private void HandlePuzzleSolved(PuzzleBase solved)
     {
         remainingCount = Mathf.Max(0, remainingCount - 1);
+        audioManager.PuzzleCompleted(remainingCount);
         UpdateCenterDisplay();
 
         int solvedIndex = System.Array.IndexOf(puzzlesInOrder, solved);

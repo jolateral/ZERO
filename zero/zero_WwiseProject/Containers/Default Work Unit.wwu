@@ -258,6 +258,13 @@
 											</ObjectLists>
 										</MusicTrack>
 										<MusicTrack Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleAComplete_2026-07-25_Final_v1" ID="{D15AA4A3-5EC1-4885-B241-940316082738}" ShortID="513688618">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
@@ -332,6 +339,13 @@
 											</ObjectLists>
 										</MusicTrack>
 										<MusicTrack Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleBComplete_2026-07-25_Final_v1" ID="{BAE81660-C637-424A-9842-A119009D3FAA}" ShortID="26093577">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
@@ -406,6 +420,13 @@
 											</ObjectLists>
 										</MusicTrack>
 										<MusicTrack Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleCComplete_2026-07-25_Final_v1" ID="{D54EF7BB-39F1-46B8-8274-018C6FD1B1A1}" ShortID="234548420">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
@@ -480,6 +501,13 @@
 											</ObjectLists>
 										</MusicTrack>
 										<MusicTrack Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleDComplete_2026-07-25_Final_v1" ID="{2B8DA420-C592-4A8D-A5AD-83845F681E2D}" ShortID="75750061">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
@@ -557,7 +585,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-3</Value>
+														<Value>-5</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>

@@ -22,6 +22,10 @@ public class TitleScreenController : MonoBehaviour
     [SerializeField] private CanvasGroup blackFadeOverlay; // full-screen black image, alpha 0 at start
     [SerializeField] private GameObject puzzleRoomRoot;   // optional: enable/activate puzzles only after reveal
 
+    [Header("Audio Manager")]
+    [SerializeField] private AudioManager audioManager;
+
+
     [Header("Timing")]
     [SerializeField] private float titleFadeOutDuration = 0.6f;
     [SerializeField] private float blackFadeInDuration = 0.6f;
@@ -57,9 +61,10 @@ public class TitleScreenController : MonoBehaviour
         titleOverlay.blocksRaycasts = false;
         titleOverlay.interactable = false;
 
-        // 2. Fade to black
+        // 2. Fade to black & update music
         blackFadeOverlay.blocksRaycasts = true;
         yield return Fade(blackFadeOverlay, 0f, 1f, blackFadeInDuration);
+        audioManager.GameMusic();
 
         // 3. Hide title overlay entirely now that screen is black
         titleOverlay.gameObject.SetActive(false);

@@ -27,6 +27,9 @@ public class PuzzleFocusController : MonoBehaviour
     [Header("Timing")]
     [SerializeField] private float fadeDuration = 0.5f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioManager audioManager;
+
     private int currentFocusIndex = -1;
     private Coroutine activeTransition;
 
@@ -46,6 +49,8 @@ public class PuzzleFocusController : MonoBehaviour
         if (index < 0 || index >= focusViews.Length) return;
         if (activeTransition != null) StopCoroutine(activeTransition);
         activeTransition = StartCoroutine(CrossfadeToFocus(index));
+
+        audioManager.PuzzleView();
     }
 
     /// <summary>Crossfade from the current focus view back to the hallway view.</summary>
@@ -53,6 +58,8 @@ public class PuzzleFocusController : MonoBehaviour
     {
         if (activeTransition != null) StopCoroutine(activeTransition);
         activeTransition = StartCoroutine(CrossfadeToHallway());
+
+        audioManager.HallwayView();
     }
 
     private IEnumerator CrossfadeToFocus(int index)

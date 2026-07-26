@@ -14,6 +14,80 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="AudioReset" ID="{C315A6CF-E640-4DF7-A0AF-A5AB1BFDA9B9}">
+					<ChildrenList>
+						<Action Name="" ID="{C4A0E509-E5D1-4FF0-8FB9-8716155CBB90}" ShortID="219394567">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="False" ID="{21E9FC4D-4DA0-411F-8987-319EA7D8F78E}" WorkUnitID="{92A52CD5-919B-4CF7-A54B-16727D4D10FE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{06E1A0BF-102F-4720-9FE7-7166147CAD60}" ShortID="1042928076">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="False" ID="{C0346672-585C-4EC5-95A7-414D088B1D29}" WorkUnitID="{92A52CD5-919B-4CF7-A54B-16727D4D10FE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{B21DEDE5-3006-44FC-A695-7DFCD3555EA6}" ShortID="700647922">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="False" ID="{EF1589D3-1D1B-4A78-99BC-3FA7AC09F959}" WorkUnitID="{92A52CD5-919B-4CF7-A54B-16727D4D10FE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{29C69905-19C7-47B2-8F1C-55456F043919}" ShortID="763156041">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="False" ID="{F9D36435-6676-46A2-B0B2-BAC51CCD54FC}" WorkUnitID="{92A52CD5-919B-4CF7-A54B-16727D4D10FE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{9B4BC64D-9545-4A1E-B235-3EB23ADE20FA}" ShortID="55815412">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="False" ID="{43CD8D6B-4B39-4953-A5B4-860A71B341BC}" WorkUnitID="{92A52CD5-919B-4CF7-A54B-16727D4D10FE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{F69990DB-8EBC-4959-A955-182275C5CEE5}" ShortID="375409524">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="False" ID="{C8FAC568-E349-4FF9-B8FB-28D459A6D1DF}" WorkUnitID="{92A52CD5-919B-4CF7-A54B-16727D4D10FE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{D15A3026-B19C-422E-8B04-1FB734040B09}" ShortID="141016401">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Title" ID="{85ED588D-9A61-4012-AE92-7EB8563503A9}" WorkUnitID="{92A52CD5-919B-4CF7-A54B-16727D4D10FE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
