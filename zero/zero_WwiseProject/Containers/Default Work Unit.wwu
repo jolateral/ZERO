@@ -1,6 +1,776 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{6F5BCABF-0952-4E82-8506-86456922904B}" SchemaVersion="133">
 	<Containers>
-		<WorkUnit Name="Default Work Unit" ID="{6F5BCABF-0952-4E82-8506-86456922904B}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{6F5BCABF-0952-4E82-8506-86456922904B}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicSwitchContainer Name="MusicSwitchContainer" ID="{8126014F-AACF-4170-BA04-6D091F7C8FA3}" ShortID="1042131962">
+					<PropertyList>
+						<Property Name="GridFrequencyPreset" Type="int16" Value="53"/>
+						<Property Name="Tempo" Type="Real64" Value="104"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E80F8469-0A61-40A3-9F09-476530A122DF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
+						</Reference>
+						<Reference Name="TransitionRoot">
+							<Custom>
+								<MusicTransition Name="Root" ID="{FBF747BB-138D-4ABF-ACC1-FD91288200CE}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{8173C757-37A6-48BA-BE7E-1F2FA1BEA2AE}">
+											<PropertyList>
+												<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</Custom>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicPlaylistContainer Name="MenuMusicPlaylist" ID="{E4C612B6-65C1-4BB4-8739-C43B175AF0CF}" ShortID="306355916">
+							<PropertyList>
+								<Property Name="Tempo" Type="Real64" Value="104"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E80F8469-0A61-40A3-9F09-476530A122DF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
+								</Reference>
+								<Reference Name="PlaylistRoot">
+									<Custom>
+										<MusicPlaylistItem Name="" ID="{57EC0E80-8A2B-4B96-844D-27536CACDC1A}" ShortID="786418235">
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{862385BE-EE77-4C64-8B34-4F58656CBEEE}" ShortID="707134544">
+													<PropertyList>
+														<Property Name="LoopCount" Type="int16" Value="0"/>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Segment">
+															<ObjectRef Name="MenuMusicSegment" ID="{6F700E20-7708-41E1-AB0A-5A89CC91B397}" WorkUnitID="{6F5BCABF-0952-4E82-8506-86456922904B}"/>
+														</Reference>
+													</ReferenceList>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
+									</Custom>
+								</Reference>
+								<Reference Name="TransitionRoot">
+									<Custom>
+										<MusicTransition Name="Root" ID="{58FD475B-7910-4622-8965-0A1F1E0B9E6A}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{A361D7EA-EA62-4B9C-85C4-FC32C0DBFED4}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="MenuMusicSegment" ID="{6F700E20-7708-41E1-AB0A-5A89CC91B397}" ShortID="1049594333">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="11875"/>
+										<Property Name="Tempo" Type="Real64" Value="104"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E80F8469-0A61-40A3-9F09-476530A122DF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="DK_ZERO_Game_MUS_Countdown_Menu_2026-07-25_Final_v1" ID="{C072385B-1A7E-4958-A24F-292374CA6D9F}" ShortID="378905188">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{61EC8D8C-1327-4087-9EF2-4DBC58217139}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DK_ZERO_Game_MUS_Countdown_Menu_2026-07-25_Final_v1" ID="{8D749818-8BCC-4EEE-B1E2-E2822A3B08EF}">
+													<Language>SFX</Language>
+													<AudioFile>DK_ZERO_Game_MUS_Countdown_Menu_2026-07-25_Final_v1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="567721724"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<MusicTrackSequence Name="" ID="{C8364A9E-9F46-4AD2-BEB8-8AC75CBF8C03}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<MusicClip Name="DK_ZERO_Game_MUS_Countdown_Menu_2026-07-25_Final_v1" ID="{15C5C9E4-4E04-4C75-BA54-33BEBDE59D27}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="9230.77083333333"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="DK_ZERO_Game_MUS_Countdown_Menu_2026-07-25_Final_v1" ID="{8D749818-8BCC-4EEE-B1E2-E2822A3B08EF}"/>
+																</MusicClip>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<MusicCue Name="Entry Cue" ID="{AFE54A26-C9E9-4579-9643-CDAB0D28719A}"/>
+											<MusicCue Name="Exit Cue" ID="{B247483F-C8DA-4D26-9014-BA693EE28342}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="9230.76923076923"/>
+												</PropertyList>
+											</MusicCue>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+							</ChildrenList>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="MainMusicPlaylist" ID="{5FFA912B-E16B-4026-96D1-C9F4689BD553}" ShortID="840823986">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E80F8469-0A61-40A3-9F09-476530A122DF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
+								</Reference>
+								<Reference Name="PlaylistRoot">
+									<Custom>
+										<MusicPlaylistItem Name="" ID="{2FB37F4D-E9EF-4FD6-8F63-57CC6D48C06B}" ShortID="412880047">
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{5872DBAA-0495-45A5-B7C4-453077B9BF74}" ShortID="649288505">
+													<PropertyList>
+														<Property Name="LoopCount" Type="int16" Value="0"/>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Segment">
+															<ObjectRef Name="MainMusicSegment" ID="{1C7B8726-2421-4255-97DC-DA2D838F09E7}" WorkUnitID="{6F5BCABF-0952-4E82-8506-86456922904B}"/>
+														</Reference>
+													</ReferenceList>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
+									</Custom>
+								</Reference>
+								<Reference Name="TransitionRoot">
+									<Custom>
+										<MusicTransition Name="Root" ID="{DC432733-980C-4A60-8D02-79CE92D293EA}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{3DD53FF2-384F-4069-B82E-B095A78A0FAE}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="MainMusicSegment" ID="{1C7B8726-2421-4255-97DC-DA2D838F09E7}" ShortID="769449733">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="82500"/>
+										<Property Name="Tempo" Type="Real64" Value="104"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{E80F8469-0A61-40A3-9F09-476530A122DF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="DK_ZERO_Game_MUS_Countdown_Main_Base_2026-07-25_Final_v1" ID="{35F976DE-6B39-4803-8670-9BA68E3EC29D}" ShortID="346485441">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{34298D8E-418F-4F6F-8094-ED7FF19B9B93}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DK_ZERO_Game_MUS_Countdown_Main_Base_2026-07-25_Final_v1" ID="{AF89A1E1-2167-469A-8DCD-480C63D4F695}">
+													<Language>SFX</Language>
+													<AudioFile>DK_ZERO_Game_MUS_Countdown_Main_Base_2026-07-25_Final_v1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="647849700"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<MusicTrackSequence Name="" ID="{1AEC40B0-945B-43DD-8B28-9AC115521932}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<MusicClip Name="DK_ZERO_Game_MUS_Countdown_Main_Base_2026-07-25_Final_v1" ID="{185AC9A4-ED39-49EC-BF25-99C64057DC1D}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="73846.1666666667"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="DK_ZERO_Game_MUS_Countdown_Main_Base_2026-07-25_Final_v1" ID="{AF89A1E1-2167-469A-8DCD-480C63D4F695}"/>
+																</MusicClip>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+										<MusicTrack Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleAComplete_2026-07-25_Final_v1" ID="{D15AA4A3-5EC1-4885-B241-940316082738}" ShortID="513688618">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{561E0989-FD6D-4274-AF43-A8052371FBF7}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleAComplete_2026-07-25_Final_v1" ID="{566BF504-A494-4D45-8D7B-89CB8DBEF637}">
+													<Language>SFX</Language>
+													<AudioFile>DK_ZERO_Game_MUS_Countdown_Main_PuzzleAComplete_2026-07-25_Final_v1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="218285886"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<StateInfo>
+												<StateGroupList>
+													<StateGroupInfo>
+														<StateGroupRef Name="CompletePuzzleA" ID="{FEA75770-448C-40CC-AC18-095CECFF5A7D}"/>
+														<StateGroupInfo Name="" ID="{28A029DF-87DD-4ADB-B6C5-9B5E4EEBACA8}" ShortID="285619376"/>
+													</StateGroupInfo>
+												</StateGroupList>
+												<CustomStateList>
+													<CustomState>
+														<StateRef Name="False" ID="{21E9FC4D-4DA0-411F-8987-319EA7D8F78E}"/>
+														<CustomState Name="" ID="{30E12090-BA97-432C-B8DC-DDE96D3AFB9E}" ShortID="875525393">
+															<PropertyList>
+																<Property Name="Volume" Type="Real64" Value="-108"/>
+															</PropertyList>
+														</CustomState>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="None" ID="{3AFFDD06-5769-4F43-991A-C47286332D15}"/>
+														<CustomState Name="" ID="{C8D7FE32-F0DC-46F1-AE40-1D014832AF79}" ShortID="711891988">
+															<PropertyList>
+																<Property Name="Volume" Type="Real64" Value="-108"/>
+															</PropertyList>
+														</CustomState>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="True" ID="{03AB42B9-79E2-4F51-9537-A57CB0890C3D}"/>
+														<CustomState Name="" ID="{089A53A8-82CE-489C-AF9B-707CC21ADF11}" ShortID="932020074"/>
+													</CustomState>
+												</CustomStateList>
+											</StateInfo>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<MusicTrackSequence Name="" ID="{2B68DA2E-FAB9-4250-9407-8B9B94E46F0B}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<MusicClip Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleAComplete_2026-07-25_Final_v1" ID="{90A233E1-70FC-4CFB-AB65-AD4F6FACE606}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="73846.1666666667"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleAComplete_2026-07-25_Final_v1" ID="{566BF504-A494-4D45-8D7B-89CB8DBEF637}"/>
+																</MusicClip>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+										<MusicTrack Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleBComplete_2026-07-25_Final_v1" ID="{BAE81660-C637-424A-9842-A119009D3FAA}" ShortID="26093577">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{5468D5D3-C6BA-40CB-B523-386E391FE616}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleBComplete_2026-07-25_Final_v1" ID="{884969C8-7C62-48D5-AF3F-0CC6F7F6DA05}">
+													<Language>SFX</Language>
+													<AudioFile>DK_ZERO_Game_MUS_Countdown_Main_PuzzleBComplete_2026-07-25_Final_v1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="693015490"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<StateInfo>
+												<StateGroupList>
+													<StateGroupInfo>
+														<StateGroupRef Name="CompletePuzzleB" ID="{12D0618A-65FA-4A36-ACC5-951F30D16D5C}"/>
+														<StateGroupInfo Name="" ID="{E26652A8-0E99-49F3-9F9A-7B738D4B9DBE}" ShortID="465845974"/>
+													</StateGroupInfo>
+												</StateGroupList>
+												<CustomStateList>
+													<CustomState>
+														<StateRef Name="None" ID="{4CC8B222-6680-4CCE-9610-5D8A5DE61813}"/>
+														<CustomState Name="" ID="{298FECC3-5129-4B5C-A0BB-C295A9979F04}" ShortID="134255859">
+															<PropertyList>
+																<Property Name="Volume" Type="Real64" Value="-108"/>
+															</PropertyList>
+														</CustomState>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="True" ID="{1D208BFF-6754-4E0A-865C-118B28683C4C}"/>
+														<CustomState Name="" ID="{6665C4E4-B495-4659-B593-CCBEA5EF7D43}" ShortID="733362704"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="False" ID="{C0346672-585C-4EC5-95A7-414D088B1D29}"/>
+														<CustomState Name="" ID="{38196A63-01F0-423B-A5D0-BA7DE2286FCC}" ShortID="327550374">
+															<PropertyList>
+																<Property Name="Volume" Type="Real64" Value="-108"/>
+															</PropertyList>
+														</CustomState>
+													</CustomState>
+												</CustomStateList>
+											</StateInfo>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<MusicTrackSequence Name="" ID="{206AEDE8-20C3-409C-B804-5C6A38AD9ABB}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<MusicClip Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleBComplete_2026-07-25_Final_v1" ID="{DFBC0E7F-5C2C-4CD1-A761-7EEF35F98777}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="73846.1666666667"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleBComplete_2026-07-25_Final_v1" ID="{884969C8-7C62-48D5-AF3F-0CC6F7F6DA05}"/>
+																</MusicClip>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+										<MusicTrack Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleCComplete_2026-07-25_Final_v1" ID="{D54EF7BB-39F1-46B8-8274-018C6FD1B1A1}" ShortID="234548420">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{FBAA5B88-46F6-4B1E-B90B-36D87A1D2721}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleCComplete_2026-07-25_Final_v1" ID="{C110CAF1-5A3A-478D-B199-CACE986D7E3C}">
+													<Language>SFX</Language>
+													<AudioFile>DK_ZERO_Game_MUS_Countdown_Main_PuzzleCComplete_2026-07-25_Final_v1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="649696160"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<StateInfo>
+												<StateGroupList>
+													<StateGroupInfo>
+														<StateGroupRef Name="CompletePuzzleC" ID="{BB2B4D89-E1E5-46E0-B3C9-B5F3F047F74A}"/>
+														<StateGroupInfo Name="" ID="{0A19F781-B1D9-45B2-A2F9-2DB82AA7EEC4}" ShortID="908356075"/>
+													</StateGroupInfo>
+												</StateGroupList>
+												<CustomStateList>
+													<CustomState>
+														<StateRef Name="None" ID="{F4386D11-7162-49AB-97CD-46373EBC1A85}"/>
+														<CustomState Name="" ID="{81A67DEE-A722-4E23-ABD3-58C57EBC1B8F}" ShortID="259871400">
+															<PropertyList>
+																<Property Name="Volume" Type="Real64" Value="-108"/>
+															</PropertyList>
+														</CustomState>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="False" ID="{EF1589D3-1D1B-4A78-99BC-3FA7AC09F959}"/>
+														<CustomState Name="" ID="{7B3BA296-E1E3-43DE-A3E8-17DA2C41904B}" ShortID="904643707">
+															<PropertyList>
+																<Property Name="Volume" Type="Real64" Value="-108"/>
+															</PropertyList>
+														</CustomState>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="True" ID="{2049CA4D-D3C9-4DE8-B360-8283920AF7E3}"/>
+														<CustomState Name="" ID="{85F5B926-9B19-49C6-BC86-9A43119CEDE8}" ShortID="542201236"/>
+													</CustomState>
+												</CustomStateList>
+											</StateInfo>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<MusicTrackSequence Name="" ID="{FA934C3E-C823-4F3D-845A-DD2D2C1E2730}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<MusicClip Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleCComplete_2026-07-25_Final_v1" ID="{B1DD2DC5-AFCA-438C-AA21-75929E48202E}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="73846.1666666667"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleCComplete_2026-07-25_Final_v1" ID="{C110CAF1-5A3A-478D-B199-CACE986D7E3C}"/>
+																</MusicClip>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+										<MusicTrack Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleDComplete_2026-07-25_Final_v1" ID="{2B8DA420-C592-4A8D-A5AD-83845F681E2D}" ShortID="75750061">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{6A77D4A8-CF21-4571-895A-DBF91177C37B}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleDComplete_2026-07-25_Final_v1" ID="{9D7AADE4-2400-49D6-B046-B124D015AD61}">
+													<Language>SFX</Language>
+													<AudioFile>DK_ZERO_Game_MUS_Countdown_Main_PuzzleDComplete_2026-07-25_Final_v1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="123096805"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<StateInfo>
+												<StateGroupList>
+													<StateGroupInfo>
+														<StateGroupRef Name="CompletePuzzleD" ID="{5439EBC0-A4F4-4575-8727-F37D103AE41D}"/>
+														<StateGroupInfo Name="" ID="{156504CD-4774-475F-91BA-EBDC141C29AE}" ShortID="801649299"/>
+													</StateGroupInfo>
+												</StateGroupList>
+												<CustomStateList>
+													<CustomState>
+														<StateRef Name="False" ID="{F9D36435-6676-46A2-B0B2-BAC51CCD54FC}"/>
+														<CustomState Name="" ID="{30A71DEA-0141-468E-8EEC-6163B9B4A59E}" ShortID="850328926">
+															<PropertyList>
+																<Property Name="Volume" Type="Real64" Value="-108"/>
+															</PropertyList>
+														</CustomState>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="True" ID="{7D0B7BB3-F742-4E86-AA12-3A001792AA00}"/>
+														<CustomState Name="" ID="{9F91DFDB-146A-4B76-8BC7-2F65D67493A9}" ShortID="701961832"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="None" ID="{7AE1D388-F6CB-4F61-B1D6-C1B287A51F98}"/>
+														<CustomState Name="" ID="{CF2A2F7D-E3B4-4920-B55A-9FE182FC5557}" ShortID="899301779">
+															<PropertyList>
+																<Property Name="Volume" Type="Real64" Value="-108"/>
+															</PropertyList>
+														</CustomState>
+													</CustomState>
+												</CustomStateList>
+											</StateInfo>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<MusicTrackSequence Name="" ID="{E28679D3-C5F1-4D9D-9FB7-CDEF6A9DB739}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<MusicClip Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleDComplete_2026-07-25_Final_v1" ID="{F3BCF799-1EAB-437B-A69E-C7C943D37E6E}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="73846.1666666667"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleDComplete_2026-07-25_Final_v1" ID="{9D7AADE4-2400-49D6-B046-B124D015AD61}"/>
+																</MusicClip>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+										<MusicTrack Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleEComplete_2026-07-25_Final_v1" ID="{27051171-052E-4758-9B60-10AE0E3709F1}" ShortID="719922332">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{917C5176-9F30-42B2-B6D8-454C15657D68}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleEComplete_2026-07-25_Final_v1" ID="{F97D14B5-5C81-4804-8EA1-7121B425DEB7}">
+													<Language>SFX</Language>
+													<AudioFile>DK_ZERO_Game_MUS_Countdown_Main_PuzzleEComplete_2026-07-25_Final_v1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="334064277"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<StateInfo>
+												<StateGroupList>
+													<StateGroupInfo>
+														<StateGroupRef Name="CompletePuzzleE" ID="{F67718F0-1BA6-4333-A466-DC901D5D5FC9}"/>
+														<StateGroupInfo Name="" ID="{F93E32AA-9138-467F-BD43-513A4FBB239F}" ShortID="61673509"/>
+													</StateGroupInfo>
+												</StateGroupList>
+												<CustomStateList>
+													<CustomState>
+														<StateRef Name="None" ID="{16F87BA1-01D6-4448-B2E2-A04C414F4109}"/>
+														<CustomState Name="" ID="{F2E361B9-8A6A-40C5-980B-811C2A675378}" ShortID="418005385">
+															<PropertyList>
+																<Property Name="Volume" Type="Real64" Value="-108"/>
+															</PropertyList>
+														</CustomState>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="True" ID="{22B92B6B-3448-487F-B5F5-B0AB9BA55470}"/>
+														<CustomState Name="" ID="{1AA8F70F-97B9-45CF-A9C6-7D90F2423F9E}" ShortID="340245863"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="False" ID="{43CD8D6B-4B39-4953-A5B4-860A71B341BC}"/>
+														<CustomState Name="" ID="{726BBC9F-55A3-431B-AEAC-6F329A97E2C3}" ShortID="611739763">
+															<PropertyList>
+																<Property Name="Volume" Type="Real64" Value="-108"/>
+															</PropertyList>
+														</CustomState>
+													</CustomState>
+												</CustomStateList>
+											</StateInfo>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<MusicTrackSequence Name="" ID="{9BBBAC42-6A28-4ACC-A690-931BDDFF7573}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<MusicClip Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleEComplete_2026-07-25_Final_v1" ID="{90802723-1E26-4558-8DE8-CEB71687C664}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="73846.1666666667"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleEComplete_2026-07-25_Final_v1" ID="{F97D14B5-5C81-4804-8EA1-7121B425DEB7}"/>
+																</MusicClip>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+										<MusicTrack Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleView_2026-07-25_Final_v1" ID="{E8C80223-BBD7-49BF-8EF7-53524892E442}" ShortID="643687931">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AD13624E-112F-42AC-BF12-69B428DAE2DB}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{7FDD9D4F-E560-4CDC-9004-8F0E48679258}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleView_2026-07-25_Final_v1" ID="{E88B20DA-7DC7-406B-8553-0CCB68868EDA}">
+													<Language>SFX</Language>
+													<AudioFile>DK_ZERO_Game_MUS_Countdown_Main_PuzzleView_2026-07-25_Final_v1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="333191263"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<StateInfo>
+												<StateGroupList>
+													<StateGroupInfo>
+														<StateGroupRef Name="PuzzleView" ID="{CBE84738-B6D7-46F4-9935-9BB77DDAAA27}"/>
+														<StateGroupInfo Name="" ID="{4EEE53E8-4382-4607-8EEF-38C0B6204936}" ShortID="215717951"/>
+													</StateGroupInfo>
+												</StateGroupList>
+												<CustomStateList>
+													<CustomState>
+														<StateRef Name="True" ID="{0E673A36-7558-45AC-97EA-4DDC56916460}"/>
+														<CustomState Name="" ID="{65194115-4D66-49AD-9BDA-9C8074A7E9E7}" ShortID="233551673"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="None" ID="{6096A88A-CEE6-4743-A0CA-B5267B1A7074}"/>
+														<CustomState Name="" ID="{1DA08A43-BFDC-4656-BD8C-7996245F3A91}" ShortID="309776171"/>
+													</CustomState>
+													<CustomState>
+														<StateRef Name="False" ID="{C8FAC568-E349-4FF9-B8FB-28D459A6D1DF}"/>
+														<CustomState Name="" ID="{DEDD5F57-D743-4CC4-B6E6-ABD2656327E8}" ShortID="911180532">
+															<PropertyList>
+																<Property Name="Volume" Type="Real64" Value="-108"/>
+															</PropertyList>
+														</CustomState>
+													</CustomState>
+												</CustomStateList>
+											</StateInfo>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<MusicTrackSequence Name="" ID="{3C7EC738-FAEE-40BB-A3F0-C04750A5A385}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<MusicClip Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleView_2026-07-25_Final_v1" ID="{1107AF64-0B71-4690-91D0-65429A2E03D1}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="73846.1666666667"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="DK_ZERO_Game_MUS_Countdown_Main_PuzzleView_2026-07-25_Final_v1" ID="{E88B20DA-7DC7-406B-8553-0CCB68868EDA}"/>
+																</MusicClip>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<MusicCue Name="Entry Cue" ID="{0E754337-C6C0-4CEC-A2F9-4C26CA9F6847}"/>
+											<MusicCue Name="Exit Cue" ID="{8EDF411F-EA0D-4481-A44E-8B961337EBD5}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="73846.1538461538"/>
+												</PropertyList>
+											</MusicCue>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+							</ChildrenList>
+						</MusicPlaylistContainer>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Arguments">
+							<PluginInnerObject Name="" ID="{4CB8225A-6960-436E-9536-5E773E672A58}" PluginName="MusicArgumentsSlot" CompanyID="0" PluginID="89">
+								<ReferenceList>
+									<Reference Name="Argument">
+										<ObjectRef Name="GameState" ID="{74B565D3-FA70-4E71-AFF1-2BFE2684976E}" WorkUnitID="{92A52CD5-919B-4CF7-A54B-16727D4D10FE}"/>
+									</Reference>
+								</ReferenceList>
+							</PluginInnerObject>
+						</ObjectList>
+						<ObjectList Name="Entries">
+							<MultiSwitchEntry Name="" ID="{46B8DA8D-8E84-4827-B221-F0F7C1484F36}">
+								<ReferenceList>
+									<Reference Name="AudioNode">
+										<ObjectRef Name="MenuMusicPlaylist" ID="{E4C612B6-65C1-4BB4-8739-C43B175AF0CF}" WorkUnitID="{6F5BCABF-0952-4E82-8506-86456922904B}"/>
+									</Reference>
+								</ReferenceList>
+								<ObjectLists>
+									<ObjectList Name="EntryPath">
+										<PluginInnerObject Name="" ID="{DE556D2D-A3F7-43E2-8083-BA196FE7686F}" PluginName="EntryPathSlot" CompanyID="0" PluginID="88">
+											<ReferenceList>
+												<Reference Name="EntryPathObject">
+													<ObjectRef Name="Title" ID="{85ED588D-9A61-4012-AE92-7EB8563503A9}" WorkUnitID="{92A52CD5-919B-4CF7-A54B-16727D4D10FE}"/>
+												</Reference>
+											</ReferenceList>
+										</PluginInnerObject>
+									</ObjectList>
+								</ObjectLists>
+							</MultiSwitchEntry>
+							<MultiSwitchEntry Name="" ID="{D8955C38-C1F9-4095-9C9B-14B948388050}">
+								<ReferenceList>
+									<Reference Name="AudioNode">
+										<ObjectRef Name="MainMusicPlaylist" ID="{5FFA912B-E16B-4026-96D1-C9F4689BD553}" WorkUnitID="{6F5BCABF-0952-4E82-8506-86456922904B}"/>
+									</Reference>
+								</ReferenceList>
+								<ObjectLists>
+									<ObjectList Name="EntryPath">
+										<PluginInnerObject Name="" ID="{8A15F487-ABA9-4911-8BF3-43B858A22750}" PluginName="EntryPathSlot" CompanyID="0" PluginID="88">
+											<ReferenceList>
+												<Reference Name="EntryPathObject">
+													<ObjectRef Name="Puzzle" ID="{A126374C-4573-4B60-848C-849D4B445A8A}" WorkUnitID="{92A52CD5-919B-4CF7-A54B-16727D4D10FE}"/>
+												</Reference>
+											</ReferenceList>
+										</PluginInnerObject>
+									</ObjectList>
+								</ObjectLists>
+							</MultiSwitchEntry>
+						</ObjectList>
+					</ObjectLists>
+				</MusicSwitchContainer>
+			</ChildrenList>
+		</WorkUnit>
 	</Containers>
 </WwiseDocument>
