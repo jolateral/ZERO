@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
     [Header("Room-view <-> close-up focus transitions")]
     [SerializeField] private PuzzleFocusController focusController;
 
+    [Header("Audio")]
+    [SerializeField] private AudioManager audioManager;
+
     [Header("Ending sequence, played once Puzzle E is solved")]
     [SerializeField] private EpilogueSequenceController epilogueController;
 
@@ -118,6 +121,12 @@ public class GameManager : MonoBehaviour
     private void HandlePuzzleSolved(PuzzleBase solved)
     {
         remainingCount = Mathf.Max(0, remainingCount - 1);
+
+        if (audioManager != null)
+        {
+            audioManager.PuzzleCompleted(remainingCount);
+        }
+
         UpdateCenterDisplay();
 
         int solvedIndex = System.Array.IndexOf(puzzlesInOrder, solved);
@@ -132,14 +141,11 @@ public class GameManager : MonoBehaviour
                 hallwayIcons[nextIndex].SetUnlocked(true);
             }
         }
-        else if (remainingCount <= 1 && finalPuzzleRoot != null)
+        else if (remainingCount <= 1)
         {
-            // All four wall puzzles solved, center shows 1 -> reveal final puzzle
-            finalPuzzleRoot.SetActive(true);
-            if (finalPuzzle != null)
-            {
-                finalPuzzle.Activate(); // flips the 3 target decorations to "1" and starts the glow
-            }
+            // Puzzle E is on hold for now (soft-removed, concept changed) -- skip
+            // straight to the ending sequence once the last wall puzzle (D) is solved.
+            CompleteFinalPuzzle();
         }
 
         // Point-and-click flow: always drop back to the hallway after a solve so the
