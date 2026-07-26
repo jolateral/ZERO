@@ -1,25 +1,20 @@
 using System;
 using UnityEngine;
-using TMPro;
 
 /// <summary>
-/// A reusable 4-digit numeric display. Uses TMP_Text placeholders for each digit
-/// so you can wire this up immediately without art, then later swap the digit
-/// rendering (e.g. in RenderDigit) for real seven-segment sprites/atlases.
-/// Value range is clamped to 0-9999 by default (4 digits, wraps per-digit if enabled).
+/// A reusable 4-digit display driving UI Animators.
+/// Set Value updates the 'DigitValue' parameter in each slot's Animator.
 /// </summary>
 public class SevenSegmentDisplay : MonoBehaviour
 {
-    [Header("Digit Text Slots (index 0 = leftmost/thousands)")]
-    [SerializeField] private TMP_Text[] digitSlots = new TMP_Text[4];
+    [Header("Digit Animator Slots (index 0 = leftmost)")]
+    [SerializeField] private Animator[] digitAnimators = new Animator[4];
 
     [Header("Behavior")]
-    [Tooltip("If true, individual digits wrap 9->0 or 0->9 instead of clamping the whole value.")]
+    [Tooltip("If true, individual digits wrap 9->0 or 0->9 instead of clamping.")]
     [SerializeField] private bool perDigitWrap = false;
 
-    [Tooltip("Colors are placeholder-only; swap for sprite swaps once art arrives.")]
-    [SerializeField] private Color activeColor = new Color(0.6f, 1f, 0.2f); // lime green placeholder
-
+    private static readonly int DigitValueHash = Animator.StringToHash("DigitValue");
     private int[] digits = new int[4];
 
     public event Action OnReachedZero;
@@ -42,21 +37,14 @@ public class SevenSegmentDisplay : MonoBehaviour
         CheckZero();
     }
 
-    /// <summary>Get the whole value as an int.</summary>
-    public int GetValue()
-    {
-        return digits[0] * 1000 + digits[1] * 100 + digits[2] * 10 + digits[3];
-    }
-
-    /// <summary>Get a single digit (0-3 index, 0 = leftmost).</summary>
+    public int GetValue() => digits[0] * 1000 + digits[1] * 100 + digits[2] * 10 + digits[3];
     public int GetDigit(int index) => digits[index];
 
-    /// <summary>Set a single digit directly (0-9). Useful for Puzzle B's independent countdowns.</summary>
     public void SetDigit(int index, int value)
     {
         if (perDigitWrap)
         {
-            value = ((value % 10) + 10) % 10; // wrap
+            value = ((value % 10) + 10) % 10;
         }
         else
         {
@@ -68,7 +56,6 @@ public class SevenSegmentDisplay : MonoBehaviour
         CheckZero();
     }
 
-    /// <summary>Decrement a single digit by 1, with optional wrap 0->9 (per Puzzle B design doc).</summary>
     public void DecrementDigit(int index, bool wrapAtZero)
     {
         int v = digits[index] - 1;
@@ -79,7 +66,6 @@ public class SevenSegmentDisplay : MonoBehaviour
         SetDigit(index, v);
     }
 
-    /// <summary>Add a delta to the whole 4-digit number (used by Puzzle C's +11 and Puzzle D's -0111 etc).</summary>
     public void AddToValue(int delta)
     {
         SetValue(GetValue() + delta);
@@ -95,11 +81,12 @@ public class SevenSegmentDisplay : MonoBehaviour
 
     private void RefreshVisuals()
     {
-        for (int i = 0; i < digitSlots.Length; i++)
+        for (int i = 0; i < digitAnimators.Length; i++)
         {
-            if (digitSlots[i] == null) continue;
-            digitSlots[i].text = digits[i].ToString();
-            digitSlots[i].color = activeColor;
+            if (digitAnimators[i] == null) continue;
+
+            // Sets the 'DigitValue' int parameter in the Animator controller
+            digitAnimators[i].SetInteger(DigitValueHash, digits[i]);
         }
         OnValueChanged?.Invoke(digits);
     }
