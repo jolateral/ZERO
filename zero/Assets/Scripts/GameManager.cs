@@ -1,12 +1,14 @@
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [Header("Center Floor Number Display (placeholder TMP text)")]
-    [SerializeField] private TMP_Text centerCountText;
+    [Header("Center Floor Number Display (stylized PNG sprites)")]
+    [SerializeField] private Image centerCountImage;
+    [Tooltip("Sprites indexed by number to display: index 0 = '0', index 1 = '1', ... index 5 = '5'. Assign as many as you have; if the count exceeds the array, the last sprite is used.")]
+    [SerializeField] private Sprite[] numberSprites;
 
     [Header("Puzzles, in solve order: A, B, C, D")]
     [SerializeField] private PuzzleBase[] puzzlesInOrder;
@@ -138,11 +140,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Swaps the center display's sprite to match remainingCount.
+    /// If numberSprites doesn't have an entry for the exact count (e.g. missing a "0" sprite),
+    /// it clamps to the last available sprite in the array instead of throwing/erroring.
+    /// </summary>
     private void UpdateCenterDisplay()
     {
-        if (centerCountText != null)
+        if (centerCountImage == null || numberSprites == null || numberSprites.Length == 0)
         {
-            centerCountText.text = remainingCount.ToString();
+            return;
+        }
+
+        int spriteIndex = Mathf.Clamp(remainingCount, 0, numberSprites.Length - 1);
+        Sprite sprite = numberSprites[spriteIndex];
+
+        if (sprite != null)
+        {
+            centerCountImage.sprite = sprite;
+            // NOTE: intentionally NOT calling SetNativeSize() here — that would override
+            // the RectTransform size/position you set up manually in the editor.
+            // The Image component will scale the sprite to fit whatever RectTransform
+            // size you've configured, as long as its Image Type is set appropriately
+            // (see notes below).
         }
     }
 
