@@ -9,18 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c97bdd968ecf49d49fdd2a40b4a708a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f444e2f1a81dc54cab58569a7ca372c, type: 3}
   m_Name: AkWwiseInitializationSettings
-  m_EditorClassIdentifier: AK.Wwise.Unity.API::AkWwiseInitializationSettings
+  m_EditorClassIdentifier: AK.Wwise.Unity.Addressables::AK.Wwise.Unity.WwiseAddressables.AkWwiseAddressablesInitializationSettings
   PlatformSettingsNameList:
   - Mac
+  - Web
   - Windows
   PlatformSettingsList:
   - {fileID: 11400000, guid: d3770afaaa0554955bc5824c72f3c3d1, type: 2}
+  - {fileID: 11400000, guid: 79857d98974396d4088d6d992b282b98, type: 2}
   - {fileID: 11400000, guid: 6ae1d0ddd1458429fa328c12f76d0f12, type: 2}
-  InvalidReferencePlatforms: []
+  InvalidReferencePlatforms:
+  - Web
   UserSettings:
-    m_BasePath: Audio/GeneratedSoundBanks
+    m_BasePath: Audio\GeneratedSoundBanks
     m_StartupLanguage: English(US)
     m_EngineLogging: 1
     m_IsDecodedBankEnabled: 0

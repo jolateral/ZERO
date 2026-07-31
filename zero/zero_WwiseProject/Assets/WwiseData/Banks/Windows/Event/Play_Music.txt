@@ -1,0 +1,35 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2932040671	Play_Music			\Default Work Unit\Play_Music	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	2531350374	PuzzleView			\Default Work Unit\PuzzleView	
+	3556769385	CompletePuzzleA			\Default Work Unit\CompletePuzzleA	
+	3556769386	CompletePuzzleB			\Default Work Unit\CompletePuzzleB	
+	3556769387	CompletePuzzleC			\Default Work Unit\CompletePuzzleC	
+	3556769388	CompletePuzzleD			\Default Work Unit\CompletePuzzleD	
+	3556769389	CompletePuzzleE			\Default Work Unit\CompletePuzzleE	
+	4091656514	GameState			\Default Work Unit\GameState	
+
+State	ID	Name	State Group			Notes
+	748895195	None	PuzzleView			
+	2452206122	False	PuzzleView			
+	3053630529	True	PuzzleView			
+	748895195	None	CompletePuzzleA			
+	2452206122	False	CompletePuzzleA			
+	3053630529	True	CompletePuzzleA			
+	748895195	None	CompletePuzzleB			
+	2452206122	False	CompletePuzzleB			
+	3053630529	True	CompletePuzzleB			
+	748895195	None	CompletePuzzleC			
+	2452206122	False	CompletePuzzleC			
+	3053630529	True	CompletePuzzleC			
+	748895195	None	CompletePuzzleD			
+	2452206122	False	CompletePuzzleD			
+	3053630529	True	CompletePuzzleD			
+	748895195	None	CompletePuzzleE			
+	2452206122	False	CompletePuzzleE			
+	3053630529	True	CompletePuzzleE			
+	748895195	None	GameState			
+	1780448749	Puzzle	GameState			
+	3705726509	Title	GameState			
+

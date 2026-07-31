@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="172">
+	<SoundBanks>
+		<SoundBank Id="2932040671" Type="Event" GUID="{82E4BAC9-9D27-400C-86F4-7C2562E6C185}" Language="SFX" Hash="{57EB97D5-F891-D678-BDB0-6CA64EA9DC15}">
+			<ObjectPath>Play_Music</ObjectPath>
+			<ShortName>Play_Music</ShortName>
+			<Path>Event/Play_Music.bnk</Path>
+			<Media>
+				<File Id="123096805" Language="SFX" Streaming="false" Location="Loose">
+					<ShortName>DK_ZERO_Game_MUS_Countdown_Main_PuzzleDComplete_2026-07-25_Final_v1.wav</ShortName>
+					<Path>Media/123096805.wem</Path>
+					<CachePath>51/{5102FE33-A26F-C2D3-8A7A-E412191FD039}.wem</CachePath>
+				</File>
+				<File Id="218285886" Language="SFX" Streaming="false" Location="Loose">
+					<ShortName>DK_ZERO_Game_MUS_Countdown_Main_PuzzleAComplete_2026-07-25_Final_v1.wav</ShortName>
+					<Path>Media/218285886.wem</Path>
+					<CachePath>94/{9472B10F-F713-882E-A817-4CC49E89EE91}.wem</CachePath>
+				</File>
+				<File Id="333191263" Language="SFX" Streaming="false" Location="Loose">
+					<ShortName>DK_ZERO_Game_MUS_Countdown_Main_PuzzleView_2026-07-25_Final_v1.wav</ShortName>
+					<Path>Media/333191263.wem</Path>
+					<CachePath>70/{70052015-329F-4262-F96E-3EB7701F3AD7}.wem</CachePath>
+				</File>
+				<File Id="334064277" Language="SFX" Streaming="false" Location="Loose">
+					<ShortName>DK_ZERO_Game_MUS_Countdown_Main_PuzzleEComplete_2026-07-25_Final_v1.wav</ShortName>
+					<Path>Media/334064277.wem</Path>
+					<CachePath>39/{39177958-C848-A739-27CF-8CFA2604713F}.wem</CachePath>
+				</File>
+				<File Id="567721724" Language="SFX" Streaming="false" Location="Loose">
+					<ShortName>DK_ZERO_Game_MUS_Countdown_Menu_2026-07-25_Final_v1.wav</ShortName>
+					<Path>Media/567721724.wem</Path>
+					<CachePath>0D/{0D1BE9C1-27E0-C270-5B39-4C1BE36E8439}.wem</CachePath>
+				</File>
+				<File Id="647849700" Language="SFX" Streaming="false" Location="Loose">
+					<ShortName>DK_ZERO_Game_MUS_Countdown_Main_Base_2026-07-25_Final_v1.wav</ShortName>
+					<Path>Media/647849700.wem</Path>
+					<CachePath>BC/{BCD63AB0-4D64-BC46-A393-158A58D94E33}.wem</CachePath>
+				</File>
+				<File Id="649696160" Language="SFX" Streaming="false" Location="Loose">
+					<ShortName>DK_ZERO_Game_MUS_Countdown_Main_PuzzleCComplete_2026-07-25_Final_v1.wav</ShortName>
+					<Path>Media/649696160.wem</Path>
+					<CachePath>45/{45B002E0-1E08-450A-7580-DD492B918F73}.wem</CachePath>
+				</File>
+				<File Id="693015490" Language="SFX" Streaming="false" Location="Loose">
+					<ShortName>DK_ZERO_Game_MUS_Countdown_Main_PuzzleBComplete_2026-07-25_Final_v1.wav</ShortName>
+					<Path>Media/693015490.wem</Path>
+					<CachePath>55/{55906DC8-FCCF-2136-2CF9-222DB4964BCC}.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="2932040671" Name="Play_Music" ObjectPath="\Events\Default Work Unit\Play_Music" GUID="{82E4BAC9-9D27-400C-86F4-7C2562E6C185}" DurationType="Infinite">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="4091656514" Id="3705726509" GUID="{85ED588D-9A61-4012-AE92-7EB8563503A9}"/>
+							<MediaRefs>
+								<MediaRef Id="567721724"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="4091656514" Id="1780448749" GUID="{A126374C-4573-4B60-848C-849D4B445A8A}"/>
+							<MediaRefs>
+								<MediaRef Id="123096805"/>
+								<MediaRef Id="218285886"/>
+								<MediaRef Id="333191263"/>
+								<MediaRef Id="334064277"/>
+								<MediaRef Id="647849700"/>
+								<MediaRef Id="649696160"/>
+								<MediaRef Id="693015490"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+			</Events>
+			<StateGroups>
+				<StateGroup Id="4091656514" Name="GameState" ObjectPath="\States\Default Work Unit\GameState" GUID="{74B565D3-FA70-4E71-AFF1-2BFE2684976E}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\GameState\None" GUID="{11D2AC33-6E4F-4115-A015-1C397A74586B}"/>
+						<State Id="1780448749" Name="Puzzle" ObjectPath="\States\Default Work Unit\GameState\Puzzle" GUID="{A126374C-4573-4B60-848C-849D4B445A8A}"/>
+						<State Id="3705726509" Name="Title" ObjectPath="\States\Default Work Unit\GameState\Title" GUID="{85ED588D-9A61-4012-AE92-7EB8563503A9}"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{182EF95C-5949-D92B-D5DB-4F7DD8F0C297}</FileHash>
+</SoundBanksInfo>

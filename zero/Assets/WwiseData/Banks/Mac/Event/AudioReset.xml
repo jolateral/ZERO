@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="16" SoundBankVersion="172">
+	<SoundBanks>
+		<SoundBank Id="3795978734" Type="Event" GUID="{C315A6CF-E640-4DF7-A0AF-A5AB1BFDA9B9}" Language="SFX" Hash="{E1D5EF15-D219-B26C-C475-FF015D8D2EEF}">
+			<ObjectPath>AudioReset</ObjectPath>
+			<ShortName>AudioReset</ShortName>
+			<Path>Event/AudioReset.bnk</Path>
+			<Events>
+				<Event Id="3795978734" Name="AudioReset" ObjectPath="\Events\Default Work Unit\AudioReset" GUID="{C315A6CF-E640-4DF7-A0AF-A5AB1BFDA9B9}" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="3556769385" Id="2452206122" Name="False" ObjectPath="\States\Default Work Unit\CompletePuzzleA\False" GUID="{21E9FC4D-4DA0-411F-8987-319EA7D8F78E}"/>
+						<ActionSetStateEntry GroupId="4091656514" Id="3705726509" Name="Title" ObjectPath="\States\Default Work Unit\GameState\Title" GUID="{85ED588D-9A61-4012-AE92-7EB8563503A9}"/>
+					</ActionSetState>
+				</Event>
+			</Events>
+			<StateGroups>
+				<StateGroup Id="2531350374" Name="PuzzleView" ObjectPath="\States\Default Work Unit\PuzzleView" GUID="{CBE84738-B6D7-46F4-9935-9BB77DDAAA27}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\PuzzleView\None" GUID="{6096A88A-CEE6-4743-A0CA-B5267B1A7074}"/>
+						<State Id="2452206122" Name="False" ObjectPath="\States\Default Work Unit\PuzzleView\False" GUID="{C8FAC568-E349-4FF9-B8FB-28D459A6D1DF}"/>
+						<State Id="3053630529" Name="True" ObjectPath="\States\Default Work Unit\PuzzleView\True" GUID="{0E673A36-7558-45AC-97EA-4DDC56916460}"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="3556769385" Name="CompletePuzzleA" ObjectPath="\States\Default Work Unit\CompletePuzzleA" GUID="{FEA75770-448C-40CC-AC18-095CECFF5A7D}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\CompletePuzzleA\None" GUID="{3AFFDD06-5769-4F43-991A-C47286332D15}"/>
+						<State Id="2452206122" Name="False" ObjectPath="\States\Default Work Unit\CompletePuzzleA\False" GUID="{21E9FC4D-4DA0-411F-8987-319EA7D8F78E}"/>
+						<State Id="3053630529" Name="True" ObjectPath="\States\Default Work Unit\CompletePuzzleA\True" GUID="{03AB42B9-79E2-4F51-9537-A57CB0890C3D}"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="3556769386" Name="CompletePuzzleB" ObjectPath="\States\Default Work Unit\CompletePuzzleB" GUID="{12D0618A-65FA-4A36-ACC5-951F30D16D5C}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\CompletePuzzleB\None" GUID="{4CC8B222-6680-4CCE-9610-5D8A5DE61813}"/>
+						<State Id="2452206122" Name="False" ObjectPath="\States\Default Work Unit\CompletePuzzleB\False" GUID="{C0346672-585C-4EC5-95A7-414D088B1D29}"/>
+						<State Id="3053630529" Name="True" ObjectPath="\States\Default Work Unit\CompletePuzzleB\True" GUID="{1D208BFF-6754-4E0A-865C-118B28683C4C}"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="3556769387" Name="CompletePuzzleC" ObjectPath="\States\Default Work Unit\CompletePuzzleC" GUID="{BB2B4D89-E1E5-46E0-B3C9-B5F3F047F74A}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\CompletePuzzleC\None" GUID="{F4386D11-7162-49AB-97CD-46373EBC1A85}"/>
+						<State Id="2452206122" Name="False" ObjectPath="\States\Default Work Unit\CompletePuzzleC\False" GUID="{EF1589D3-1D1B-4A78-99BC-3FA7AC09F959}"/>
+						<State Id="3053630529" Name="True" ObjectPath="\States\Default Work Unit\CompletePuzzleC\True" GUID="{2049CA4D-D3C9-4DE8-B360-8283920AF7E3}"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="3556769388" Name="CompletePuzzleD" ObjectPath="\States\Default Work Unit\CompletePuzzleD" GUID="{5439EBC0-A4F4-4575-8727-F37D103AE41D}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\CompletePuzzleD\None" GUID="{7AE1D388-F6CB-4F61-B1D6-C1B287A51F98}"/>
+						<State Id="2452206122" Name="False" ObjectPath="\States\Default Work Unit\CompletePuzzleD\False" GUID="{F9D36435-6676-46A2-B0B2-BAC51CCD54FC}"/>
+						<State Id="3053630529" Name="True" ObjectPath="\States\Default Work Unit\CompletePuzzleD\True" GUID="{7D0B7BB3-F742-4E86-AA12-3A001792AA00}"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="3556769389" Name="CompletePuzzleE" ObjectPath="\States\Default Work Unit\CompletePuzzleE" GUID="{F67718F0-1BA6-4333-A466-DC901D5D5FC9}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\CompletePuzzleE\None" GUID="{16F87BA1-01D6-4448-B2E2-A04C414F4109}"/>
+						<State Id="2452206122" Name="False" ObjectPath="\States\Default Work Unit\CompletePuzzleE\False" GUID="{43CD8D6B-4B39-4953-A5B4-860A71B341BC}"/>
+						<State Id="3053630529" Name="True" ObjectPath="\States\Default Work Unit\CompletePuzzleE\True" GUID="{22B92B6B-3448-487F-B5F5-B0AB9BA55470}"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="4091656514" Name="GameState" ObjectPath="\States\Default Work Unit\GameState" GUID="{74B565D3-FA70-4E71-AFF1-2BFE2684976E}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\GameState\None" GUID="{11D2AC33-6E4F-4115-A015-1C397A74586B}"/>
+						<State Id="1780448749" Name="Puzzle" ObjectPath="\States\Default Work Unit\GameState\Puzzle" GUID="{A126374C-4573-4B60-848C-849D4B445A8A}"/>
+						<State Id="3705726509" Name="Title" ObjectPath="\States\Default Work Unit\GameState\Title" GUID="{85ED588D-9A61-4012-AE92-7EB8563503A9}"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{6DC0B27E-FB57-4A11-529A-D2AFB282C57D}</FileHash>
+</SoundBanksInfo>

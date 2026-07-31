@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: WwiseData_Web
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: WwiseData_Web
+  m_GUID: 5fc9ef0db5abd94408dea95b97cf03ed
+  m_SerializeEntries:
+  - m_GUID: 2baf091b11d9ff54cb79496a0558832b
+    m_Address: Assets/WwiseData/Banks/Web/Event/AudioReset.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4207b76905d5fe2459dfaca4c535aacf
+    m_Address: Assets/WwiseData/Banks/Web/Media/567721724.wem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ca8ea37f4624a14dbad1cde627cb5a3
+    m_Address: Assets/WwiseData/Banks/Web/Media/333191263.wem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65ddda7b2e602c74885c9cf09871d380
+    m_Address: Assets/WwiseData/Banks/Web/Event/Play_Music.bnk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6dc75b940eae5e74ab9ecb23844bf5d0
+    m_Address: Assets/WwiseData/Banks/Web/Media/649696160.wem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c8abd51ee0d34c4f92a338fdeefc5ec
+    m_Address: Assets/WwiseData/Banks/Web/Media/218285886.wem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95f0dd47a26eff2478163afb06842a38
+    m_Address: Assets/WwiseData/Banks/Web/Media/693015490.wem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 970bcd7591d9ce140a85439981a653ba
+    m_Address: Assets/WwiseData/Banks/Web/Media/334064277.wem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5657b389be92c8429340cd0d51c1b4b
+    m_Address: Assets/WwiseData/Banks/Web/Media/647849700.wem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4bd07499c8663c408ef5a21dcba1b9d
+    m_Address: Assets/WwiseData/Banks/Web/Media/123096805.wem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a08777d5a6528834198d92a5db467871, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c4a75d4991a56fc49be55cc86e2486e3, type: 2}
