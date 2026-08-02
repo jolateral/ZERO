@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,17 @@ public class GameManager : MonoBehaviour
 
     [Header("Room-view <-> close-up focus transitions")]
     [SerializeField] private PuzzleFocusController focusController;
+
+    [Header("Ending: open-hallway view + epilogue/credits")]
+    [Tooltip("Enabled once Puzzle E is solved -- e.g. a hallway background variant with the door open, or a swapped end-cap decoration. Sits alongside/within hallwayView.")]
+    [SerializeField] private GameObject openHallwayBackground;
+    [Tooltip("The 4 puzzle thumbnail GameObjects (or their shared parents), same order as hallwayIcons isn't required here -- just drag each one in. Hidden once the door opens.")]
+    [SerializeField] private GameObject[] hallwayThumbnails;
+    [Tooltip("Parent object of the center floor puzzle-count display. Hidden once the door opens.")]
+    [SerializeField] private GameObject puzzleCounterContainer;
+    [SerializeField] private EpilogueSequenceController epilogueController;
+    [Tooltip("How long the player gets to sit in the open-hallway view before the epilogue text starts fading in.")]
+    [SerializeField] private float epilogueStartDelay = 2f;
 
     [Header("Audio")]
     [SerializeField] private AudioManager audioManager;
@@ -78,6 +90,14 @@ public class GameManager : MonoBehaviour
         if (index < 0 || index >= puzzlesInOrder.Length) return;
         if (!IsPuzzleUnlocked(index)) return;
 
+        // Puzzle E has no focus view of its own -- it plays in the hallway. Stop listening
+        // for ZERO keystrokes the moment the player leaves the hallway for any other puzzle
+        // (including re-visiting an already-solved A-D puzzle).
+        if (finalPuzzle != null)
+        {
+            finalPuzzle.SetListening(false);
+        }
+
         if (focusController != null)
         {
             focusController.FocusOnPuzzle(index);
@@ -96,6 +116,19 @@ public class GameManager : MonoBehaviour
         {
             focusController.ReturnToHallway();
         }
+
+        RefreshFinalPuzzleListening();
+    }
+
+    /// <summary>Puzzle E should only be listening for keystrokes when D is solved, E itself
+    /// isn't solved yet, and the player is actually looking at the hallway (not some other
+    /// puzzle's focus view).</summary>
+    private void RefreshFinalPuzzleListening()
+    {
+        if (finalPuzzle == null) return;
+
+        bool eUnlocked = finalPuzzleRoot != null && finalPuzzleRoot.activeSelf;
+        finalPuzzle.SetListening(eUnlocked && !finalPuzzle.IsSolved);
     }
 
     private bool IsPuzzleUnlocked(int index)
@@ -124,11 +157,12 @@ public class GameManager : MonoBehaviour
         }
         else if (remainingCount <= 1 && finalPuzzleRoot != null)
         {
-            // All four wall puzzles solved, center shows 1 -> reveal final puzzle
+            // All four wall puzzles solved, center shows 1 -> Puzzle E becomes active.
+            // It has no focus view of its own; it plays directly in the hallway.
             finalPuzzleRoot.SetActive(true);
             if (finalPuzzle != null)
             {
-                finalPuzzle.Activate(); // flips the 3 target decorations to "1" and starts the glow
+                finalPuzzle.Activate();
             }
         }
 
@@ -138,6 +172,8 @@ public class GameManager : MonoBehaviour
         {
             focusController.ReturnToHallway();
         }
+
+        RefreshFinalPuzzleListening();
     }
 
     /// <summary>
@@ -166,11 +202,53 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /// <summary>Called by PuzzleE once all 3 target decorations are fixed back to zero.</summary>
+    /// <summary>Called by PuzzleE once the player has spelled ZERO and the wall has opened.</summary>
     public void CompleteFinalPuzzle()
     {
         remainingCount = 0;
         UpdateCenterDisplay(); // the giant center number flips from "1" to "0"
-        Debug.Log("Game complete! Hook your win screen / scene transition here.");
+
+        if (openHallwayBackground != null)
+        {
+            openHallwayBackground.SetActive(true);
+        }
+
+        if (finalPuzzleRoot != null)
+        {
+            finalPuzzleRoot.SetActive(false);
+        }
+
+        // The puzzle is fully over -- clear the hallway of everything that referred to it.
+        if (hallwayThumbnails != null)
+        {
+            foreach (var thumbnail in hallwayThumbnails)
+            {
+                if (thumbnail != null) thumbnail.SetActive(false);
+            }
+        }
+
+        if (puzzleCounterContainer != null)
+        {
+            puzzleCounterContainer.SetActive(false);
+        }
+
+        // Drop back to the (now-open) hallway view rather than lingering on the puzzle room.
+        if (focusController != null)
+        {
+            focusController.ReturnToHallway();
+        }
+
+        StartCoroutine(DelayedEpilogue());
+    }
+
+    /// <summary>Gives the player a beat to take in the open hallway before the epilogue text starts.</summary>
+    private IEnumerator DelayedEpilogue()
+    {
+        yield return new WaitForSeconds(epilogueStartDelay);
+
+        if (epilogueController != null)
+        {
+            epilogueController.PlayEpilogue();
+        }
     }
 }
