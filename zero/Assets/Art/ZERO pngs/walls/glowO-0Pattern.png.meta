@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: ed0ce26f99f1041ba952d64e07c3b27b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5745327178764845537
+    second: glowO-0Pattern_0
+  - first:
+      213: -5253181200232896248
+    second: glowO-0Pattern_1
+  - first:
+      213: -7947732719472111819
+    second: glowO-0Pattern_2
+  - first:
+      213: 8076372352542219488
+    second: glowO-0Pattern_3
+  - first:
+      213: -5930105747002880813
+    second: glowO-0Pattern_4
+  - first:
+      213: -2962718612673169159
+    second: glowO-0Pattern_5
+  - first:
+      213: 2450325711766534648
+    second: glowO-0Pattern_6
+  - first:
+      213: 6130934843318850386
+    second: glowO-0Pattern_7
+  - first:
+      213: 2915842528277908120
+    second: glowO-0Pattern_8
+  - first:
+      213: 7095607166398169906
+    second: glowO-0Pattern_9
+  - first:
+      213: -9050731287290871596
+    second: glowO-0Pattern_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: glowO-0Pattern_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 843
+        width: 242
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e10da801a08bbf40800000000000000
+      internalID: 5745327178764845537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowO-0Pattern_1
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 819
+        width: 282
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 809ab5be783f817b0800000000000000
+      internalID: -5253181200232896248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowO-0Pattern_2
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 819
+        width: 290
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53f8d16533bf3b190800000000000000
+      internalID: -7947732719472111819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowO-0Pattern_3
+      rect:
+        serializedVersion: 2
+        x: 1659
+        y: 855
+        width: 242
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ec901b3dd9051070800000000000000
+      internalID: 8076372352542219488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowO-0Pattern_4
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 507
+        width: 130
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dc046dfd3804bda0800000000000000
+      internalID: -5930105747002880813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowO-0Pattern_5
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 183
+        width: 330
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f87d227e1f42e6d0800000000000000
+      internalID: -2962718612673169159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowO-0Pattern_6
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 219
+        width: 126
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f9b9d1a04e410220800000000000000
+      internalID: 2450325711766534648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowO-0Pattern_7
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 0
+        width: 270
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 253d515c1c4751550800000000000000
+      internalID: 6130934843318850386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowO-0Pattern_8
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 0
+        width: 278
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89a4bf6a457277820800000000000000
+      internalID: 2915842528277908120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowO-0Pattern_9
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 199
+        width: 202
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23301eaaf19a87260800000000000000
+      internalID: 7095607166398169906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowO-0Pattern_10
+      rect:
+        serializedVersion: 2
+        x: 1651
+        y: 0
+        width: 269
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d08387d8d7556280800000000000000
+      internalID: -9050731287290871596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      glowO-0Pattern_0: 5745327178764845537
+      glowO-0Pattern_1: -5253181200232896248
+      glowO-0Pattern_10: -9050731287290871596
+      glowO-0Pattern_2: -7947732719472111819
+      glowO-0Pattern_3: 8076372352542219488
+      glowO-0Pattern_4: -5930105747002880813
+      glowO-0Pattern_5: -2962718612673169159
+      glowO-0Pattern_6: 2450325711766534648
+      glowO-0Pattern_7: 6130934843318850386
+      glowO-0Pattern_8: 2915842528277908120
+      glowO-0Pattern_9: 7095607166398169906
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
