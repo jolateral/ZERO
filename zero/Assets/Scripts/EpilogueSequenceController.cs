@@ -22,6 +22,8 @@ public class EpilogueSequenceController : MonoBehaviour
 
     [Header("Credits (hard cut, no fade)")]
     [SerializeField] private GameObject creditsDisplay;
+    [Tooltip("Quit/Exit button shown on the credits screen. Wire its OnClick() to QuitGame() in the Inspector -- this reference is optional and only used to auto-hook the listener at runtime as a convenience.")]
+    [SerializeField] private UnityEngine.UI.Button quitButton;
 
     [Header("Root object for this whole sequence")]
     [Tooltip("Hidden until PlayEpilogue() is called. Should sit on top of / adjacent to the open-hallway view.")]
@@ -37,6 +39,11 @@ public class EpilogueSequenceController : MonoBehaviour
         foreach (var line in epilogueLines)
         {
             if (line != null) SetAlpha(line, 0f);
+        }
+
+        if (quitButton != null)
+        {
+            quitButton.onClick.AddListener(QuitGame);
         }
     }
 
@@ -89,5 +96,18 @@ public class EpilogueSequenceController : MonoBehaviour
     private void SetAlpha(CanvasGroup group, float alpha)
     {
         group.alpha = alpha;
+    }
+
+    /// <summary>Hook this to the credits screen's Quit/Exit button OnClick(), or leave
+    /// quitButton assigned above and it'll be wired automatically.
+    /// Note: Application.Quit() is a no-op in the Editor -- use the Editor-only branch
+    /// below to actually stop Play mode when testing.</summary>
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

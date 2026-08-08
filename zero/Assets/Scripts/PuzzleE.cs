@@ -6,11 +6,16 @@ using UnityEngine;
 /// room view -- it plays directly in the hallway, which is already covered
 /// in ambient "zero"/"0" wall decoration (pure flavor text up to this point).
 /// It only starts accepting input once Puzzle D is solved. To solve it, the
-/// player types Z-E-R-O on the keyboard while standing in the hallway. Each
-/// correct letter cumulatively lights up that letter's glow overlay on the
-/// wall (Z, then Z+E, then Z+E+R, then Z+E+R+O). Any wrong letter resets
-/// all glow and progress back to zero -- the player has to start spelling
-/// from Z again.
+/// player types Z-E-R-O on the keyboard while standing in the hallway.
+///
+/// Guidance: as soon as this puzzle becomes active (or a wrong key resets
+/// progress), the NEXT letter the player needs to type is proactively
+/// highlighted -- e.g. Z lights up the instant Puzzle D is solved, without
+/// the player needing to press anything first. Each correct letter keeps
+/// its glow on (cumulative, Z, then Z+E, then Z+E+R, then Z+E+R+O) and
+/// additionally lights the following letter as the new hint. Any wrong
+/// letter resets all glow and progress back to zero -- and immediately
+/// re-lights Z as the hint again, so the player is never left guessing.
 ///
 /// Once all 4 letters are correct: a brief "full wall glow" flourish plays,
 /// then the wall art swaps from its closed state (with the keyhole/silhouette
@@ -23,7 +28,7 @@ public class PuzzleE : PuzzleBase
     private static readonly KeyCode[] TargetSequence = { KeyCode.Z, KeyCode.E, KeyCode.R, KeyCode.O };
 
     [Header("Cumulative letter glow overlays, in order Z, E, R, O")]
-    [Tooltip("Size 4. Each GameObject holds one letter's glow overlay graphic (e.g. glowZPattern, glowEPattern, glowRPattern, glowO-0Pattern). Enabled one at a time, cumulatively, as the player spells correctly.")]
+    [Tooltip("Size 4. Each GameObject holds one letter's glow overlay graphic (e.g. glowZPattern, glowEPattern, glowRPattern, glowO-0Pattern). Enabled one at a time, cumulatively -- including proactively as a hint for the NEXT letter to type, before the player has pressed it.")]
     [SerializeField] private GameObject[] letterGlowObjects;
 
     [Header("Full-wall glow flourish, shown briefly once all 4 letters are correct")]
@@ -67,6 +72,7 @@ public class PuzzleE : PuzzleBase
         progress = 0;
         solving = false;
         ClearGlow();
+        LightHintForCurrentProgress(); // proactively light Z right away, before any input
     }
 
     /// <summary>Called by GameManager if the player backs out of this room without finishing it.</summary>
@@ -77,6 +83,7 @@ public class PuzzleE : PuzzleBase
         progress = 0;
         solving = false;
         ClearGlow();
+        LightHintForCurrentProgress(); // re-light Z as the hint again
     }
 
     /// <summary>
@@ -99,16 +106,18 @@ public class PuzzleE : PuzzleBase
 
             if (key == TargetSequence[progress])
             {
-                if (letterGlowObjects != null && progress < letterGlowObjects.Length && letterGlowObjects[progress] != null)
-                {
-                    letterGlowObjects[progress].SetActive(true);
-                }
-
                 progress++;
 
                 if (progress >= TargetSequence.Length)
                 {
                     StartCoroutine(WinSequence());
+                }
+                else
+                {
+                    // Correct letter typed -- its glow is already on (it was lit as the
+                    // hint before being pressed). Now proactively light the NEXT letter
+                    // as the new hint.
+                    LightHintForCurrentProgress();
                 }
             }
             else
@@ -124,11 +133,22 @@ public class PuzzleE : PuzzleBase
     {
         progress = 0;
         ClearGlow();
+        LightHintForCurrentProgress(); // immediately re-hint Z so the player isn't left guessing
 
         if (audioManager != null)
         {
             // Hook a wrong-letter buzz/reset sound here once you add one, e.g.:
             // audioManager.PuzzleEMistake();
+        }
+    }
+
+    /// <summary>Lights the glow for whichever letter is next in the sequence (the hint),
+    /// without turning off any letters already lit -- keeping the cumulative look.</summary>
+    private void LightHintForCurrentProgress()
+    {
+        if (letterGlowObjects != null && progress < letterGlowObjects.Length && letterGlowObjects[progress] != null)
+        {
+            letterGlowObjects[progress].SetActive(true);
         }
     }
 

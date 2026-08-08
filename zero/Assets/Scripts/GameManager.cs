@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private AudioManager audioManager;
+
+    [Header("Post-solve timing")]
+    [Tooltip("How long to wait, after a puzzle is solved, before crossfading back to the hallway. Gives the puzzle's own solved animation/spin/flourish a moment to finish instead of getting cut off.")]
+    [SerializeField] private float returnToHallwayDelay = 1.0f;
+
     private int remainingCount;
 
     private void Awake()
@@ -168,6 +173,15 @@ public class GameManager : MonoBehaviour
 
         // Point-and-click flow: always drop back to the hallway after a solve so the
         // player chooses when to walk into the next puzzle, rather than auto-zooming in.
+        // Delayed slightly so the puzzle's own solved animation/spin/flourish has time
+        // to finish playing before the view cuts away to the hallway.
+        StartCoroutine(DelayedReturnToHallway());
+    }
+
+    private IEnumerator DelayedReturnToHallway()
+    {
+        yield return new WaitForSeconds(returnToHallwayDelay);
+
         if (focusController != null)
         {
             focusController.ReturnToHallway();
